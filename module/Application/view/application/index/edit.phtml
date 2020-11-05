@@ -1,0 +1,33 @@
+<div class="row">
+    <div class="col col-md-6">
+        <form action="/application/index/edit/<?php echo $this->cliente->getId(); ?>" name="form" method="POST" class="form-group">
+            <input type="hidden" name="id" value="<?php echo $this->cliente->getId(); ?>">
+            <label for="">Nome</label>
+            <input type="text" name="nome" id="" class="form-control" value="<?php echo $this->cliente->getNome(); ?>"/>
+            <label for="">Cep</label>
+            <input type="text" name="cep" id="" class="form-control" value="<?php echo $this->cliente->getCep(); ?>"/>
+            <label for="">Endereço</label>
+            <input type="text" name="endereco" id="" class="form-control" value="<?php echo $this->cliente->getEndereco(); ?>"/>
+            <label for="">Número</label>
+            <input type="text" name="numero" id="" class="form-control" value="<?php echo $this->cliente->getNumero(); ?>"/>
+            <label for="">Complemento</label>
+            <input type="text" name="complemento" id="" class="form-control" value="<?php echo $this->cliente->getComplemento(); ?>"/>
+            <label for="">Cidade</label>
+            <input type="text" name="cidade" id="" class="form-control" value="<?php echo $this->cliente->getCidade(); ?>"/>
+            <label for="">Bairro</label>
+            <input type="text" name="bairro" id="" class="form-control" value="<?php echo $this->cliente->getBairro(); ?>"/>
+            <label for="">Estado</label>
+            <input type="text" name="estado" id="" class="form-control" value="<?php echo $this->cliente->getEstado(); ?>"/>
+            <label for="">Telefone</label>
+            <input type="text" name="telefone" id="" class="form-control" value="<?php echo $this->cliente->getTelefone(); ?>"/>
+            <label for="">Email</label>
+            <input type="text" name="email" id="" class="form-control" value="<?php echo $this->cliente->getEmail(); ?>"/>
+            <br>
+            <div class="row">
+                <div class="col col-md-6">
+                    <button type="submit" class="btn btn-success">Enviar</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

@@ -9,6 +9,10 @@
 
 namespace Application;
 
+use Application\Model\Cliente;
+use Application\Model\ClienteTable;
+use Zend\Db\ResultSet\ResultSet;
+use Zend\Db\TableGateway\TableGateway;
 use Zend\Mvc\ModuleRouteListener;
 use Zend\Mvc\MvcEvent;
 
@@ -16,7 +20,7 @@ class Module
 {
     public function onBootstrap(MvcEvent $e)
     {
-        $eventManager        = $e->getApplication()->getEventManager();
+        $eventManager = $e->getApplication()->getEventManager();
         $moduleRouteListener = new ModuleRouteListener();
         $moduleRouteListener->attach($eventManager);
     }
@@ -35,5 +39,24 @@ class Module
                 ),
             ),
         );
+    }
+
+    public function getServiceConfig()
+    {
+        return [
+            'factories' => [
+                'Application\Model\ClienteTable' => function ($sm) {
+                    $tableGateway = $sm->get('ClienteTableGateway');
+                    $table = new ClienteTable($tableGateway);
+                    return $table;
+                },
+                'ClienteTableGateway' => function ($sm) {
+                    $dbAdapter = $sm->get('Zend\Db\Adapter\Adapter');
+                    $resultSetPrototype = new ResultSet();
+                    $resultSetPrototype->setArrayObjectPrototype(new Cliente());
+                    return new TableGateway('clientes', $dbAdapter, null, $resultSetPrototype);
+                }
+            ]
+        ];
     }
 }

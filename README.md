@@ -1,6 +1,11 @@
 ZendSkeletonApplication
 =======================
 
+Link para clone de versão 2.*
+-----------------------------
+
+https://stackoverflow.com/questions/41911128/how-to-install-zend-framework-2-4-11-skeleton-application
+
 Introduction
 ------------
 This is a simple, skeleton application using the ZF2 MVC layer and module
